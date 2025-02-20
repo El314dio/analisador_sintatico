@@ -13,8 +13,7 @@ public class Parser {
     private Token currentToken;
     private Token peekToken;
     private StringBuilder xmlOutput = new StringBuilder();
-
-    private String className; // nome dae uma class
+    private String className;
 
     public Parser(byte[] input) {
         scan = new Scanner(input);
@@ -309,7 +308,6 @@ public class Parser {
         printNonTerminal("/class");
     }
 
-
     public void parseVarDec() {
         printNonTerminal("varDec");
         expectPeek(TokenType.VAR);
@@ -340,8 +338,6 @@ public class Parser {
 
         printNonTerminal("/statements");
     }
-
-
 
     public int parseExpressionList() {
         printNonTerminal("expressionList");
@@ -409,6 +405,5 @@ public class Parser {
         expectPeek(TokenType.SEMICOLON);
         printNonTerminal("/returnStatement");
     }
-
 
 }
